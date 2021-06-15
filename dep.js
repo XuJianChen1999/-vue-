@@ -1,7 +1,7 @@
 /**
 * 发布订阅模式；存储所有观察者，通知相关；
 * 每个watcher都有一个update
-* 数据改变的时候，通知subs里面的每个watcher实例，触发update
+* 数据改变的时候，通知subs里面的每个watcher实例，触发update()
 */
 export default class Dep {
     constructor() {
@@ -19,6 +19,12 @@ export default class Dep {
 
     //发送通知
     notify() {
-
+        this.subs.forEach(watcher => {
+            // 通知subs里面的每个watcher实例，触发update(),更新视图
+            watcher.updated()
+        })
     }
 }
+
+// Dep在哪里实例化？在哪里addSubs？
+// Dep notify在哪里调用？

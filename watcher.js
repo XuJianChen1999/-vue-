@@ -28,14 +28,20 @@ export default class Watcher {
         //获取新的值
         let newVal = this.vm[this.key]
         //如果值没有发生改变
-        if (this.oldVal === this.newVal) return
+        console.log(newVal)
+        if (this.oldVal === newVal) return
+        
         this.callback(newVal)
     }
 }
 
 // Watcher初始化获取oldVal的时候，触发get方法，在get方法里面会去做哪些操作？？
-// 通过vm[key]获取oldVal前，为什么将当前实例挂在Dep上？？最后为什么又设置为null？？
+    // 会去添加一些依赖
 
+
+// 通过vm[key]获取oldVal前，为什么将当前实例挂在Dep上？？最后为什么又设置为null？？
+    // 在添加的时候需要收集依赖，而依赖收集其实就是watcher，需要暂存当前的watcher
+    // 在用完之后，加进去了，就可以设置为null了
 
 
 // update在什么时候执行？？ --------》Dep.notify()

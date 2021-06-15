@@ -10,9 +10,9 @@ export default class Dep {
     }
 
     // 添加观察者
-    addSubs(watcher) {
+    addSub(watcher) {
         // 如果有watcher并且存在update方法
-        if (watcher && watcher.updated) {
+        if (watcher && watcher.update) {
             this.subs.push(watcher)
         }
     }
@@ -21,10 +21,16 @@ export default class Dep {
     notify() {
         this.subs.forEach(watcher => {
             // 通知subs里面的每个watcher实例，触发update(),更新视图
-            watcher.updated()
+            watcher.update()
         })
     }
 }
 
 // Dep在哪里实例化？在哪里addSubs？
+    // Dep是在Observer类里面实例化的
+    // 在getter的时候收集依赖----》addSubs
+    // 在setter的时候派发更新----》notify
+
+
 // Dep notify在哪里调用？
+    // 在setter里面调用

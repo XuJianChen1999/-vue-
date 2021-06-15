@@ -6,7 +6,24 @@
     <title>myvue</title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <h1>模板表达式</h1>
+        <p>{{msg}}</p>
+        <br />
+
+        <h1>v-text指令</h1>
+        <p v-text="msg"></p>
+        <br />
+
+        <h1>v-html指令</h1>
+        <p v-html="testHtml"></p>
+        <br />
+
+        <h1>v-model指令、methods</h1>
+        <input type="text" v-model="msg">
+        <button v-on:click="onClickBtn">按钮</button>
+        <br />
+    </div>
     <script src="test.js" type="module"></script>
 </body>
 </html>

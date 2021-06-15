@@ -1,4 +1,7 @@
 
+# 1、关于项目
+在本地项目中的html文件引入js文件会跨域，vscode开发的话，只需要安装一个插件：`live service`,然后右键`open with live service`即可
+
 
 # 2、vue响应式原理
 
